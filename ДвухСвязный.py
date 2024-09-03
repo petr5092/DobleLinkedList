@@ -3,7 +3,7 @@ class Node:
         self.value = value
         self.next_node = None
         self.past_node = None
-        
+
     def set_next_node(self, node):
         self.next_node = node
 
@@ -12,15 +12,14 @@ class Node:
 
     def set_node_value(self, value):
         self.value = value
-    
-    
 
 
 class DobleLinkedList:
-    def __init__(self, enter_list = []):
+    def __init__(self, enter_list=[]):
         self.head = None
         for i in enter_list:
             self.push(i)
+
     def push(self, num):
         cur_node = Node(num)
         if not self.head:
@@ -37,13 +36,13 @@ class DobleLinkedList:
                 return True
             cur_node = cur_node.next_node
         return False
-    
+
     def search_index(self, index):
         cur_node = self.head
         for i in range(index):
             cur_node = cur_node.next_node
         return cur_node.value
-    
+
     def pop_meaning(self, num):
         cur_node = self.head
         while cur_node:
@@ -69,23 +68,20 @@ class DobleLinkedList:
         else:
             next_node.set_past_node(prev_node)
             prev_node.set_next_node(next_node)
-    
+
     def exit(self):
         x = self.head
-        answer = ''
+        answer = ""
         while x:
-            answer += str(x.value) + ' -> ' 
+            answer += str(x.value) + " -> "
             x = x.next_node
         return answer[:-4]
-
-
-
 
 
 lst = DobleLinkedList()
 lst.push(3)
 lst.push(4)
 print(lst.exit())
-lst.pop_index (0)
+lst.pop_index(0)
 lst.pop_meaning(21)
 print(lst.exit())
